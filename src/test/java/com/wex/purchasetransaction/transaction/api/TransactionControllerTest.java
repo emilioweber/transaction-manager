@@ -2,6 +2,7 @@ package com.wex.purchasetransaction.transaction.api;
 
 import com.wex.purchasetransaction.config.web.RateLimitFilter;
 import com.wex.purchasetransaction.config.web.TokenAuthenticationFilter;
+import com.wex.purchasetransaction.transaction.api.dto.TransactionCreatedResponse;
 import com.wex.purchasetransaction.transaction.api.dto.TransactionRequest;
 import com.wex.purchasetransaction.transaction.api.dto.ConvertedTransactionResponse;
 import com.wex.purchasetransaction.transaction.service.TransactionService;
@@ -48,7 +49,7 @@ class TransactionControllerTest {
         when(transactionService.storeTransaction(any(TransactionRequest.class)))
                 .thenAnswer(invocation -> {
                     TransactionRequest req = invocation.getArgument(0);
-                    return new ConvertedTransactionResponse(
+                    return new TransactionCreatedResponse(
                             "tx-123",
                             req.description(),
                             req.transactionDate(),
