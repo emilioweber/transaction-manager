@@ -216,10 +216,19 @@ If the system evolved into a multi-service or higher-throughput architecture, th
 Docker and Docker Compose were considered, but intentionally not used to keep the solution simple, self-contained, and focused on the problem domain.
 
 ## Testing
+
+### API tests with Postman
+
+Postman collection available at `assets/Transactions API.postman_collection.json`.
+
+Configure the `baseUrl` variable if needed (default: http://localhost:8080).
+
+###  Unit & Integration Tests
+
 Run unit and integration tests:
 ```bash
-  mvn test
+   mvn test
 ```
 
 ### Coverage
-![img.png](img.png)
+![img.png](assets/coverage.png)
