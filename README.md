@@ -76,7 +76,7 @@ This separation keeps the service layer focused exclusively on business logic an
 
 ## Persistence
 
-The application uses a relational schema designed to support the current access patterns while remaining simple and easy to evolve.
+The application uses SQLite, a relational schema designed to support the current access patterns while remaining simple and easy to evolve.
 
 Indexes are defined intentionally and conservatively, avoiding premature optimization:
 - Primary keys are defined on all tables, providing efficient lookups by identifier.
@@ -141,35 +141,35 @@ Add the header to your requests:
 **POST** `/api/v1/transactions`
 ```json
 {
-  "description": "Office Supplies",
-  "transactionDate": "2023-10-25",
-  "purchaseAmountUsd": 150.00
+  "description": "Laptop purchase",
+  "transactionDate": "2025-10-21",
+  "purchaseAmountUsd": 1299.99
 }
 ```
 
 **Response**:
 ```json
 {
-  "id": "01aecf10-cc07-4cbd-9b8c-145ff4855f9c",
-  "description": "Office Supplies",
-  "transactionDate": "2023-10-25",
-  "purchaseAmountUsd": 150.00
+  "id": "8455d03c-fd44-4b27-a5db-565e4bf62421",
+  "description": "Laptop purchase",
+  "transactionDate": "2025-10-21",
+  "purchaseAmountUsd": 1299.99
 }
 ```
 
 ### Retrieve Converted
-**GET** `/api/v1/transactions/{id}/converted?targetCurrency=Real`
+**GET** `/api/v1/transactions/{id}/converted?targetCurrency=Euro`
 
 **Response**:
 ```json
 {
-  "id": "01aecf10-cc07-4cbd-9b8c-145ff4855f9c",
+  "id": "8455d03c-fd44-4b27-a5db-565e4bf62421",
   "description": "Laptop purchase",
-  "transactionDate": "2025-10-20",
-  "originalAmountUsd": 1299.99,
-  "exchangeRate": 5.322,
-  "convertedAmount": 6918.55,
-  "targetCurrency": "Real"
+  "transactionDate": "2025-10-21",
+  "purchaseAmountUsd": 1299.99,
+  "exchangeRate": 0.852,
+  "convertedAmount": 1107.59,
+  "targetCurrency": "Euro"
 }
 ```
 
