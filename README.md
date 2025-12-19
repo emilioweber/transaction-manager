@@ -106,14 +106,14 @@ Key characteristics of the caching strategy:
 **POST** `/api/v1/auth/register`
 ```json
 {
-  "username": "admin",
+  "username": "user1",
   "password": "password123"
 }
 ```
 **Response**:
 ```json
 {
-  "username": "admin",
+  "username": "user1",
   "createdAt": "2025-12-16T08:45:01.1347011"
 }
 ```
@@ -122,7 +122,7 @@ Key characteristics of the caching strategy:
 **POST** `/api/v1/auth/login`
 ```json
 {
-  "username": "admin",
+  "username": "user1",
   "password": "password123"
 }
 ```
